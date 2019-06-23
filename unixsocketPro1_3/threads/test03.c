@@ -6,8 +6,7 @@ int				ndone;
 pthread_mutex_t	ndone_mutex = PTHREAD_MUTEX_INITIALIZER;
 pthread_cond_t	ndone_cond = PTHREAD_COND_INITIALIZER;
 
-void *
-myfunc(void *ptr)
+void *myfunc(void *ptr)
 {
 	int		val;
 
@@ -15,8 +14,7 @@ myfunc(void *ptr)
 	return(NULL);
 }
 
-int
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
 	pthread_t		tid;
 	int				n, val;

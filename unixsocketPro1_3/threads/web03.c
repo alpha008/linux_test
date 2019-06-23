@@ -28,8 +28,7 @@ void	*do_get_read(void *);
 void	home_page(const char *, const char *);
 void	write_get_cmd(struct file *);
 
-int
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
 	int			i, maxnconn;
 	pthread_t	tid;
@@ -52,7 +51,8 @@ main(int argc, char **argv)
 	nlefttoread = nlefttoconn = nfiles;
 	nconn = 0;
 /* include web2 */
-	while (nlefttoread > 0) {
+	while (nlefttoread > 0)
+   {
 		while (nconn < maxnconn && nlefttoconn > 0) {
 				/* 4find a file to read */
 			for (i = 0 ; i < nfiles; i++)
@@ -93,8 +93,7 @@ main(int argc, char **argv)
 }
 /* end web2 */
 
-void *
-do_get_read(void *vptr)
+void *do_get_read(void *vptr)
 {
 	int					fd, n;
 	char				line[MAXLINE];
@@ -128,8 +127,7 @@ do_get_read(void *vptr)
 	return(fptr);		/* terminate thread */
 }
 
-void
-write_get_cmd(struct file *fptr)
+void write_get_cmd(struct file *fptr)
 {
 	int		n;
 	char	line[MAXLINE];
@@ -141,8 +139,7 @@ write_get_cmd(struct file *fptr)
 	fptr->f_flags = F_READING;			/* clears F_CONNECTING */
 }
 
-void
-home_page(const char *host, const char *fname)
+void home_page(const char *host, const char *fname)
 {
 	int		fd, n;
 	char	line[MAXLINE];

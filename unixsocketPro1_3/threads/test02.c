@@ -1,7 +1,6 @@
 #include	"unpthread.h"
 
-void *
-myfunc(void *ptr)
+void *myfunc(void *ptr)
 {
 	int		val;
 
@@ -14,8 +13,7 @@ myfunc(void *ptr)
 	printf("val = %d\n", val);
 }
 
-int
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
 	pthread_t	tid;
 	int			n, val;

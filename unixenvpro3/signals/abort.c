@@ -3,8 +3,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-void
-abort(void)			/* POSIX-style abort() function */
+void abort(void)			/* POSIX-style abort() function */
 {
 	sigset_t			mask;
 	struct sigaction	action;

@@ -2,13 +2,13 @@
 
 #include	"unpipc.h"
 
-int
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
 	pthread_mutexattr_t	mattr;
 	pthread_condattr_t	cattr;
 
-	for ( ; ; ) {
+	for ( ; ; ) 
+    {
 		Pthread_mutexattr_init(&mattr);
 		Pthread_condattr_init(&cattr);
 	}

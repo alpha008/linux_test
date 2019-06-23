@@ -9,8 +9,7 @@
 #include <netinet/in.h>
 #endif
 
-void
-print_family(struct addrinfo *aip)
+void print_family(struct addrinfo *aip)
 {
 	printf(" family ");
 	switch (aip->ai_family) {
@@ -31,8 +30,7 @@ print_family(struct addrinfo *aip)
 	}
 }
 
-void
-print_type(struct addrinfo *aip)
+void print_type(struct addrinfo *aip)
 {
 	printf(" type ");
 	switch (aip->ai_socktype) {
@@ -52,12 +50,11 @@ print_type(struct addrinfo *aip)
 		printf("unknown (%d)", aip->ai_socktype);
 	}
 }
-
-void
-print_protocol(struct addrinfo *aip)
+void print_protocol(struct addrinfo *aip)
 {
 	printf(" protocol ");
-	switch (aip->ai_protocol) {
+	switch (aip->ai_protocol)
+    {
 	case 0:
 		printf("default");
 		break;
@@ -74,12 +71,11 @@ print_protocol(struct addrinfo *aip)
 		printf("unknown (%d)", aip->ai_protocol);
 	}
 }
-
-void
-print_flags(struct addrinfo *aip)
+void print_flags(struct addrinfo *aip)
 {
 	printf("flags");
-	if (aip->ai_flags == 0) {
+	if (aip->ai_flags == 0) 
+    {
 		printf(" 0");
 	} else {
 		if (aip->ai_flags & AI_PASSIVE)
@@ -97,8 +93,7 @@ print_flags(struct addrinfo *aip)
 	}
 }
 
-int
-main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	struct addrinfo		*ailist, *aip;
 	struct addrinfo		hint;
@@ -119,13 +114,15 @@ main(int argc, char *argv[])
 	hint.ai_next = NULL;
 	if ((err = getaddrinfo(argv[1], argv[2], &hint, &ailist)) != 0)
 		err_quit("getaddrinfo error: %s", gai_strerror(err));
-	for (aip = ailist; aip != NULL; aip = aip->ai_next) {
+	for (aip = ailist; aip != NULL; aip = aip->ai_next) 
+    {
 		print_flags(aip);
 		print_family(aip);
 		print_type(aip);
 		print_protocol(aip);
 		printf("\n\thost %s", aip->ai_canonname?aip->ai_canonname:"-");
-		if (aip->ai_family == AF_INET) {
+		if (aip->ai_family == AF_INET) 
+        {
 			sinp = (struct sockaddr_in *)aip->ai_addr;
 			addr = inet_ntop(AF_INET, &sinp->sin_addr, abuf,
 			    INET_ADDRSTRLEN);

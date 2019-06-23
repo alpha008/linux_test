@@ -14,8 +14,7 @@ struct {
 
 void	*produce(void *), *consume(void *);
 
-int
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
 	int			i, nthreads, count[MAXNTHREADS];
 	pthread_t	tid_produce[MAXNTHREADS], tid_consume;
@@ -44,8 +43,7 @@ main(int argc, char **argv)
 /* end main */
 
 /* include produce */
-void *
-produce(void *arg)
+void *produce(void *arg)
 {
 	for ( ; ; ) {
 		if (shared.nput >= nitems) {
@@ -58,8 +56,7 @@ produce(void *arg)
 	}
 }
 
-void *
-consume(void *arg)
+void *consume(void *arg)
 {
 	int		i;
 

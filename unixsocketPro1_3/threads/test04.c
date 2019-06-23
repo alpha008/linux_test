@@ -4,8 +4,7 @@
 
 static char	*infile;	/* from argv[1]; read-only by threads */
 
-void *
-myfunc(void *ptr)
+void *myfunc(void *ptr)
 {
 	int		i, fdin;
 	char	buf[MAXLINE];
@@ -29,8 +28,7 @@ myfunc(void *ptr)
 	return(NULL);
 }
 
-int
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
 	int				i, nthreads;
 	pthread_t		tid;
