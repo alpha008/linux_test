@@ -8,6 +8,9 @@
 # unixipcPro_2_2
 
 	进程间通信   书中代码右上角包含了代码路径
+	unixipcPro_2_2 其中下面这个文件./configure 生成后 在根据下面这个文件进行修改
+	configbak.h 
+	然后按照正常流程编译即可
 	
 # unixsocketPro1_3
 
